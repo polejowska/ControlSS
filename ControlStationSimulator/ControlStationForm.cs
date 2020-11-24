@@ -27,7 +27,7 @@ namespace ControlStationSimulator
         {
             timeCounter++;
 
-            if (timeCounter % 10 == 0 && !Program.alertOpened)
+            if (timeCounter % 17 == 0 && !Program.alertOpened)
             {
                 Program.alertOpened = true;
                 AlertnessVerificationForm vaForm = new AlertnessVerificationForm();
