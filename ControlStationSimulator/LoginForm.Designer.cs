@@ -46,8 +46,8 @@
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(252, 31);
             this.loginBox.TabIndex = 0;
-            this.loginBox.TabStop = false;
             this.loginBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.loginBox.TextChanged += new System.EventHandler(this.username_TextChanged);
             // 
             // passwordBox
             // 
@@ -58,9 +58,9 @@
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(252, 31);
             this.passwordBox.TabIndex = 1;
-            this.passwordBox.TabStop = false;
             this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordBox.UseSystemPasswordChar = true;
+            this.passwordBox.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // label1
             // 
@@ -68,13 +68,14 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(136, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(418, 29);
+            this.label1.Size = new System.Drawing.Size(425, 29);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Login to control the production line";
+            this.label1.Text = "Log in to control the production line";
             // 
             // loginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.Black;
+            this.loginButton.BackColor = System.Drawing.Color.DimGray;
+            this.loginButton.Enabled = false;
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -84,6 +85,7 @@
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "LOG IN";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.EnabledChanged += new System.EventHandler(this.loginButton_EnabledChanged);
             this.loginButton.Click += new System.EventHandler(this.loginButton_click);
             // 
             // pictureBox1
@@ -109,7 +111,7 @@
             this.Controls.Add(this.loginBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogInForm";
-            this.Text = "Log in to control the production line";
+            this.Text = "Control Station Simulator | Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
