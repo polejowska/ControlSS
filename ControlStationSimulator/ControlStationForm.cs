@@ -12,7 +12,10 @@ namespace ControlStationSimulator
 {
     public partial class ControlStationForm : Form
     {
+        private const int ALERT_FREQ = 17;
         private int timeCounter = 0;
+
+        private readonly Random randomNumber = new Random();
 
         public ControlStationForm()
         {
@@ -27,13 +30,21 @@ namespace ControlStationSimulator
         {
             timeCounter++;
 
-            if (timeCounter % 17 == 0 && !Program.alertOpened)
+            if (timeCounter % ALERT_FREQ == 0 && !Program.alertOpened)
             {
                 Program.alertOpened = true;
                 AlertnessVerificationForm vaForm = new AlertnessVerificationForm();
                 vaForm.Show();
                 timeCounter = 0;
-            }
+            }   
+        }
+
+
+
+
+        public int RandomNumber(int min, int max)
+        {
+            return randomNumber.Next(min, max);
         }
     }
 }

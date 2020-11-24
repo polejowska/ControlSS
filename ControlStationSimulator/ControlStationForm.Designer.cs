@@ -55,12 +55,21 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.randomAccident = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.coreTempTimer = new System.Windows.Forms.Timer(this.components);
+            this.coreUsageTimer = new System.Windows.Forms.Timer(this.components);
+            this.fansSpeedTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // runFansButton
@@ -166,7 +175,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(44, 181);
+            this.groupBox3.Location = new System.Drawing.Point(44, 172);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(363, 100);
             this.groupBox3.TabIndex = 4;
@@ -212,7 +221,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(462, 181);
+            this.groupBox4.Location = new System.Drawing.Point(462, 172);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(363, 100);
             this.groupBox4.TabIndex = 5;
@@ -258,7 +267,7 @@
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(46, 299);
+            this.groupBox5.Location = new System.Drawing.Point(46, 278);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(363, 100);
             this.groupBox5.TabIndex = 6;
@@ -304,7 +313,7 @@
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.button5);
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Location = new System.Drawing.Point(462, 299);
+            this.groupBox6.Location = new System.Drawing.Point(462, 278);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(363, 100);
             this.groupBox6.TabIndex = 7;
@@ -345,12 +354,86 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "CPU #1 Core Usage";
             // 
+            // randomAccident
+            // 
+            this.randomAccident.BackColor = System.Drawing.Color.DarkRed;
+            this.randomAccident.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.randomAccident.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomAccident.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.randomAccident.Location = new System.Drawing.Point(44, 435);
+            this.randomAccident.Name = "randomAccident";
+            this.randomAccident.Size = new System.Drawing.Size(113, 72);
+            this.randomAccident.TabIndex = 8;
+            this.randomAccident.TabStop = false;
+            this.randomAccident.Text = "CHANGE RANDOM PARAMETERS";
+            this.randomAccident.UseVisualStyleBackColor = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Controls.Add(this.button6);
+            this.groupBox7.Controls.Add(this.label14);
+            this.groupBox7.Location = new System.Drawing.Point(462, 407);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(363, 100);
+            this.groupBox7.TabIndex = 9;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "FANS SPEED";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Green;
+            this.label13.Location = new System.Drawing.Point(164, 71);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "NORMAL";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(6, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(113, 72);
+            this.button6.TabIndex = 0;
+            this.button6.TabStop = false;
+            this.button6.Text = "REDUCE SPEED";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(164, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(111, 20);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "FANS SPEED";
+            // 
+            // coreTempTimer
+            // 
+            this.coreTempTimer.Enabled = true;
+            // 
+            // coreUsageTimer
+            // 
+            this.coreUsageTimer.Enabled = true;
+            // 
+            // fansSpeedTimer
+            // 
+            this.fansSpeedTimer.Enabled = true;
+            // 
             // ControlStationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.randomAccident);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -372,6 +455,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -402,6 +487,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button randomAccident;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Timer coreTempTimer;
+        private System.Windows.Forms.Timer coreUsageTimer;
+        private System.Windows.Forms.Timer fansSpeedTimer;
     }
 }
 

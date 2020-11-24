@@ -66,11 +66,11 @@
             // 
             this.alertLabel2.AutoSize = true;
             this.alertLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertLabel2.Location = new System.Drawing.Point(127, 136);
+            this.alertLabel2.Location = new System.Drawing.Point(44, 125);
             this.alertLabel2.Name = "alertLabel2";
-            this.alertLabel2.Size = new System.Drawing.Size(344, 29);
+            this.alertLabel2.Size = new System.Drawing.Size(517, 29);
             this.alertLabel2.TabIndex = 6;
-            this.alertLabel2.Text = "Click \"OK\" to confirm alertness.";
+            this.alertLabel2.Text = "Click \"OK\" or press \"Enter\" to confirm alertness.";
             // 
             // timerAlert
             // 
