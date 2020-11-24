@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ControlStationSimulator
 {
-    public partial class LogInForm : Form
+    public partial class LoginForm : Form
     {
         private const int EM_SETCUEBANNER = 0x1501;
         private bool [] loginAllowed = { false, false };
@@ -25,7 +25,7 @@ namespace ControlStationSimulator
         private string correctPassword = "line";
 
        
-        public LogInForm()
+        public LoginForm()
         {
             InitializeComponent();
 
@@ -34,6 +34,8 @@ namespace ControlStationSimulator
             SendMessage(passwordBox.Handle, EM_SETCUEBANNER, 0, "Password");
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void loginButton_click(object sender, EventArgs e)
@@ -45,9 +47,10 @@ namespace ControlStationSimulator
 
             if (username.Equals(correctLogin) && password.Equals(correctPassword))
             {
-                Form1 form = new Form1();
-                form.ShowDialog();
-             
+                this.Hide();
+                ControlStationForm form = new ControlStationForm();
+                form.Closed += (s, args) => this.Close();
+                form.Show();
             }
             else
             {

@@ -8,6 +8,7 @@ namespace ControlStationSimulator
 {
     static class Program
     {
+        public static Boolean alertOpened = false;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,7 @@ namespace ControlStationSimulator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm());
+            Application.Run(new LoginForm());
         }
     }
 }

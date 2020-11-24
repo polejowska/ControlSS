@@ -7,5 +7,6 @@ C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSim
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.csproj.CoreCompileInputs.cache
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.exe
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.pdb
-C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.Form1.resources
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.LoginForm.resources
+C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.ControlStationForm.resources
+C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.VerifyAlertnessForm.resources
