@@ -9,4 +9,4 @@ C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSim
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.pdb
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.LoginForm.resources
 C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.ControlStationForm.resources
-C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.VerifyAlertnessForm.resources
+C:\Users\Agata Polejowska\source\repos\ControlStationSimulator\ControlStationSimulator\obj\Debug\ControlStationSimulator.AlertnessVerificationForm.resources

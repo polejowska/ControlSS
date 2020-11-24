@@ -29,9 +29,9 @@ namespace ControlStationSimulator
 
             if (timeCounter % 10 == 0 && !Program.alertOpened)
             {
-                VerifyAlertnessForm vaForm = new VerifyAlertnessForm();
-                vaForm.Show();
                 Program.alertOpened = true;
+                AlertnessVerificationForm vaForm = new AlertnessVerificationForm();
+                vaForm.Show();
                 timeCounter = 0;
             }
         }
