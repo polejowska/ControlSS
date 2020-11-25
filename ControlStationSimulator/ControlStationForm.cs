@@ -17,18 +17,24 @@ namespace ControlStationSimulator
         private int timeTempCounter = 0;
         private int timeUsageCounter = 0;
 
-        private readonly Random randomNumber = new Random();
-
-        private List<Label> labelsCoreTemp= new List<Label>();
+        private List<Label> labelsCoreTemp = new List<Label>();
         private List<Label> labelsCoreUsage = new List<Label>();
 
+        private List<Boolean> systemDestroyedFlag = new List<Boolean>();
+
+        private readonly Random randomNumber = new Random();
+
+        private int randAccident = -1;
+
         private int coreFlagTemp = -1;
+        private int tempDelay = -1;
         private int [] fansFlag = {-1, -1, -1, -1};
 
         private int fansOperation = -1;
 
-        private int[] usageFlags = { -1, -1, -1, -1 };
-        int getRandomCore = -1;
+        private int[] usageFlags = {-1, -1, -1, -1 };
+        private int usageDelay = -1;
+        private int getRandomCore = -1;
 
         public ControlStationForm()
         {
@@ -47,6 +53,11 @@ namespace ControlStationSimulator
             labelsCoreUsage.Add(core2UsageLabel);
             labelsCoreUsage.Add(core3UsageLabel);
             labelsCoreUsage.Add(core4UsageLabel);
+
+            for(int i = 0; i < (labelsCoreUsage.Count + labelsCoreTemp.Count); i++)
+            {
+                systemDestroyedFlag.Add((Boolean)false);
+            }
         }
 
         private void warningsTimer_Tick(object sender, EventArgs e)
@@ -76,15 +87,30 @@ namespace ControlStationSimulator
             timeTempCounter++;
             int currentTemp;
 
-            // TO DO:  SET WIDER RANGE AND CHECK IF GREATER
+            if(tempDelay == 1)
+            {
+                coreTempTimer.Interval = 2000;
+            }
+            else
+            {
+                coreTempTimer.Interval = 1200;
+            }
 
-            if(coreFlagTemp != -1)
+            if (randAccident != -1)
+            {
+                labelsCoreTemp[randAccident].ForeColor = Color.Red;
+                labelsCoreTemp[randAccident].Text = "HIGH: ";
+                labelsCoreTemp[randAccident].Text += RandomNumber(100, 120);
+                labelsCoreTemp[randAccident].Text += " °C ";
+                randAccident = -1;
+            }
+
+            if (coreFlagTemp != -1)
             {
                 labelsCoreTemp[coreFlagTemp - 1].ForeColor = Color.Green;
                 labelsCoreTemp[coreFlagTemp - 1].Text = "NORMAL: ";
                 labelsCoreTemp[coreFlagTemp - 1].Text += RandomNumber(50, 65);
                 labelsCoreTemp[coreFlagTemp - 1].Text += " °C ";
-                System.Threading.Thread.Sleep(1000);
             }
             else
             {
@@ -98,13 +124,13 @@ namespace ControlStationSimulator
                 }
             }
 
-            if (timeTempCounter % 12 == 0)
+            if (timeTempCounter % 22 == 0)
             {
                 riseTemperatureTimer.Enabled = true;
                 coreTempTimer.Enabled = false;
                 coreFlagTemp = -1;
+                tempDelay = -1;
             }
-
         }
 
         private void riseTemperatureTimer_Tick(object sender, EventArgs e)
@@ -122,7 +148,6 @@ namespace ControlStationSimulator
                     labelsCoreTemp[i].Text += currentTemp;
                     labelsCoreTemp[i].Text += " °C ";
 
-                    //fansFlag = 1;
                     changeMainFansSpeed("faster");
                 }
             }
@@ -165,8 +190,7 @@ namespace ControlStationSimulator
                 case "faster":
                     fansOperation = 1;
                     break;
-            }
-         
+            }  
         }
 
         private void runExtraFans2_Click(object sender, EventArgs e)
@@ -174,7 +198,7 @@ namespace ControlStationSimulator
             changeMainFansSpeed("slower");
             coreFlagTemp = 2;
             coreTempTimer.Enabled = true;
-            coreTempTimer.Start();
+            tempDelay = 1;
         }
 
         private void runExtraFans3_Click(object sender, EventArgs e)
@@ -182,7 +206,7 @@ namespace ControlStationSimulator
             changeMainFansSpeed("slower");
             coreFlagTemp = 3;
             coreTempTimer.Enabled = true;
-            coreTempTimer.Start();
+            tempDelay = 1;
         }
 
         private void runExtraFans4_Click(object sender, EventArgs e)
@@ -190,7 +214,7 @@ namespace ControlStationSimulator
             changeMainFansSpeed("slower");
             coreFlagTemp = 4;
             coreTempTimer.Enabled = true;
-            coreTempTimer.Start();
+            tempDelay = 1;
         }
 
         private void fansSpeedButton_Click(object sender, EventArgs e)
@@ -202,6 +226,25 @@ namespace ControlStationSimulator
         {
             timeUsageCounter++;
 
+            if(usageDelay == 1)
+            {
+                coreUsageTimer.Interval = 2000;
+            }
+            else
+            {
+                coreUsageTimer.Interval = 1200;
+            }
+
+            if (randAccident != -1)
+            {
+                labelsCoreUsage[randAccident].ForeColor = Color.Red;
+                labelsCoreUsage[randAccident].Text = "HIGH: ";
+                labelsCoreUsage[randAccident].Text += RandomNumber(90, 100);
+                labelsCoreUsage[randAccident].Text += " % ";
+                randAccident = -1;
+            }
+
+
             for (int j = 0; j < usageFlags.Length; j++)
             {
                 if (usageFlags[j] == 1)
@@ -210,6 +253,7 @@ namespace ControlStationSimulator
                     labelsCoreUsage[j].Text = "NORMAL: ";
                     labelsCoreUsage[j].Text += RandomNumber(0, 70);
                     labelsCoreUsage[j].Text += " % ";
+                    usageDelay = -1;
                 }
             }
 
@@ -251,21 +295,76 @@ namespace ControlStationSimulator
         private void usage1Button_Click(object sender, EventArgs e)
         {
             usageFlags[0] = 1;
+            usageDelay = 1;
         }
 
         private void usage2Button_Click(object sender, EventArgs e)
         {
             usageFlags[1] = 1;
+            usageDelay = 1;
         }
 
         private void usage3Button_Click(object sender, EventArgs e)
         {
             usageFlags[2] = 1;
+            usageDelay = 1;
         }
 
         private void usage4Button_Click(object sender, EventArgs e)
         {
             usageFlags[3] = 1;
+            usageDelay = 1;
         }
+
+        private void stopProcesses_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void randomAccident_Click(object sender, EventArgs e)
+        {
+            randAccident = RandomNumber(0, 4);
+        }
+
+        private void systemDestroyedTimer_Tick(object sender, EventArgs e)
+        {
+            int counter = 4;
+      
+            for(int i = 0; i < labelsCoreTemp.Count; i++)
+            {
+                if(labelsCoreTemp[i].Text.StartsWith("HIGH"))
+                {
+                    systemDestroyedFlag[i] = true;
+                }
+                else if(labelsCoreTemp[i].Text.StartsWith("NORMAL"))
+                {
+                    systemDestroyedFlag[i] = false;
+                }
+            }
+
+            foreach(Label labelUsage in labelsCoreUsage)
+            {
+                if(labelUsage.Text.StartsWith("HIGH"))
+                {
+                    systemDestroyedFlag[counter] = true;
+                }
+                else if (labelUsage.Text.StartsWith("NORMAL"))
+                {
+                    systemDestroyedFlag[counter] = false;
+                }
+                counter++;
+            }
+
+            // Check if all values true (Every label starts with "HIGH")
+            if (!systemDestroyedFlag.Contains(false) && Program.systemDestroyed == false)
+            {
+                this.Hide();
+                Program.systemDestroyed = true;
+                SystemDestroyedForm sdForm = new SystemDestroyedForm();
+                sdForm.Show();
+            }
+
+        }
+
     }
 }

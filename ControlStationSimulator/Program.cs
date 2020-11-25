@@ -9,6 +9,7 @@ namespace ControlStationSimulator
     static class Program
     {
         public static Boolean alertOpened = false;
+        public static Boolean systemDestroyed = false;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

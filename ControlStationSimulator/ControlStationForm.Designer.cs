@@ -71,9 +71,9 @@
             this.core4UsageLabel = new System.Windows.Forms.Label();
             this.usage4Button = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.stopProcesses = new System.Windows.Forms.Button();
             this.riseTemperatureTimer = new System.Windows.Forms.Timer(this.components);
+            this.systemDestroyedTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -412,11 +412,12 @@
             this.randomAccident.Location = new System.Drawing.Point(59, 574);
             this.randomAccident.Margin = new System.Windows.Forms.Padding(4);
             this.randomAccident.Name = "randomAccident";
-            this.randomAccident.Size = new System.Drawing.Size(151, 89);
+            this.randomAccident.Size = new System.Drawing.Size(224, 89);
             this.randomAccident.TabIndex = 8;
             this.randomAccident.TabStop = false;
             this.randomAccident.Text = "CHANGE RANDOM PARAMETERS";
             this.randomAccident.UseVisualStyleBackColor = false;
+            this.randomAccident.Click += new System.EventHandler(this.randomAccident_Click);
             // 
             // groupBox7
             // 
@@ -465,9 +466,9 @@
             this.label14.Location = new System.Drawing.Point(219, 23);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 25);
+            this.label14.Size = new System.Drawing.Size(193, 25);
             this.label14.TabIndex = 1;
-            this.label14.Text = "FANS SPEED";
+            this.label14.Text = "MAIN FANS SPEED";
             // 
             // coreTempTimer
             // 
@@ -551,7 +552,7 @@
             this.groupBox9.Size = new System.Drawing.Size(484, 123);
             this.groupBox9.TabIndex = 11;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "3";
+            this.groupBox9.Text = "4";
             // 
             // core4UsageLabel
             // 
@@ -591,40 +592,32 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "CPU #4 Core Usage";
             // 
-            // button9
+            // stopProcesses
             // 
-            this.button9.BackColor = System.Drawing.Color.DarkRed;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button9.Location = new System.Drawing.Point(224, 574);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(151, 89);
-            this.button9.TabIndex = 12;
-            this.button9.TabStop = false;
-            this.button9.Text = "CHANGE RANDOM PARAMETERS";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.DarkRed;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button10.Location = new System.Drawing.Point(392, 574);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(151, 89);
-            this.button10.TabIndex = 13;
-            this.button10.TabStop = false;
-            this.button10.Text = "CHANGE RANDOM PARAMETERS";
-            this.button10.UseVisualStyleBackColor = false;
+            this.stopProcesses.BackColor = System.Drawing.Color.Black;
+            this.stopProcesses.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.stopProcesses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopProcesses.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.stopProcesses.Location = new System.Drawing.Point(319, 574);
+            this.stopProcesses.Margin = new System.Windows.Forms.Padding(4);
+            this.stopProcesses.Name = "stopProcesses";
+            this.stopProcesses.Size = new System.Drawing.Size(224, 89);
+            this.stopProcesses.TabIndex = 13;
+            this.stopProcesses.TabStop = false;
+            this.stopProcesses.Text = "STOP ALL RUNNING PROCESSES AND EXIT";
+            this.stopProcesses.UseVisualStyleBackColor = false;
+            this.stopProcesses.Click += new System.EventHandler(this.stopProcesses_Click);
             // 
             // riseTemperatureTimer
             // 
             this.riseTemperatureTimer.Interval = 1500;
             this.riseTemperatureTimer.Tick += new System.EventHandler(this.riseTemperatureTimer_Tick);
+            // 
+            // systemDestroyedTimer
+            // 
+            this.systemDestroyedTimer.Enabled = true;
+            this.systemDestroyedTimer.Interval = 1000;
+            this.systemDestroyedTimer.Tick += new System.EventHandler(this.systemDestroyedTimer_Tick);
             // 
             // ControlStationForm
             // 
@@ -632,8 +625,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1179, 713);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.stopProcesses);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
@@ -712,9 +704,9 @@
         private System.Windows.Forms.Label core4UsageLabel;
         private System.Windows.Forms.Button usage4Button;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button stopProcesses;
         private System.Windows.Forms.Timer riseTemperatureTimer;
+        private System.Windows.Forms.Timer systemDestroyedTimer;
     }
 }
 

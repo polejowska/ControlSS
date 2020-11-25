@@ -66,6 +66,12 @@
     <Compile Include="AlertnessVerificationForm.Designer.cs">
       <DependentUpon>AlertnessVerificationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemDestroyedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemDestroyedForm.Designer.cs">
+      <DependentUpon>SystemDestroyedForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ControlStationForm.resx">
       <DependentUpon>ControlStationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="AlertnessVerificationForm.resx">
       <DependentUpon>AlertnessVerificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemDestroyedForm.resx">
+      <DependentUpon>SystemDestroyedForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
