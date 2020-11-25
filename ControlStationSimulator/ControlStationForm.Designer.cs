@@ -37,7 +37,7 @@
             this.core1TempLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.core1UsageLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.usage1Button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.core2TempLabel = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.core2UsageLabel = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.usage2Button = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.core3TempLabel = new System.Windows.Forms.Label();
@@ -53,12 +53,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.core3UsageLabel = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.usage3Button = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.randomAccident = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.fanSpeedLabel = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.fansSpeedButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.coreTempTimer = new System.Windows.Forms.Timer(this.components);
             this.coreUsageTimer = new System.Windows.Forms.Timer(this.components);
@@ -69,7 +69,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.core4UsageLabel = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.usage4Button = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -146,7 +146,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.core1UsageLabel);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.usage1Button);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(616, 27);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -169,19 +169,20 @@
             this.core1UsageLabel.TabIndex = 2;
             this.core1UsageLabel.Text = "NORMAL";
             // 
-            // button1
+            // usage1Button
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(8, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 89);
-            this.button1.TabIndex = 0;
-            this.button1.TabStop = false;
-            this.button1.Text = "REDUCE USAGE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.usage1Button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.usage1Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usage1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usage1Button.Location = new System.Drawing.Point(8, 23);
+            this.usage1Button.Margin = new System.Windows.Forms.Padding(4);
+            this.usage1Button.Name = "usage1Button";
+            this.usage1Button.Size = new System.Drawing.Size(151, 89);
+            this.usage1Button.TabIndex = 0;
+            this.usage1Button.TabStop = false;
+            this.usage1Button.Text = "REDUCE USAGE";
+            this.usage1Button.UseVisualStyleBackColor = false;
+            this.usage1Button.Click += new System.EventHandler(this.usage1Button_Click);
             // 
             // label4
             // 
@@ -249,7 +250,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.core2UsageLabel);
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.usage2Button);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Location = new System.Drawing.Point(616, 158);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -272,19 +273,20 @@
             this.core2UsageLabel.TabIndex = 2;
             this.core2UsageLabel.Text = "NORMAL";
             // 
-            // button3
+            // usage2Button
             // 
-            this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(8, 23);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 89);
-            this.button3.TabIndex = 0;
-            this.button3.TabStop = false;
-            this.button3.Text = "REDUCE USAGE";
-            this.button3.UseVisualStyleBackColor = false;
+            this.usage2Button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.usage2Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usage2Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usage2Button.Location = new System.Drawing.Point(8, 23);
+            this.usage2Button.Margin = new System.Windows.Forms.Padding(4);
+            this.usage2Button.Name = "usage2Button";
+            this.usage2Button.Size = new System.Drawing.Size(151, 89);
+            this.usage2Button.TabIndex = 0;
+            this.usage2Button.TabStop = false;
+            this.usage2Button.Text = "REDUCE USAGE";
+            this.usage2Button.UseVisualStyleBackColor = false;
+            this.usage2Button.Click += new System.EventHandler(this.usage2Button_Click);
             // 
             // label8
             // 
@@ -352,7 +354,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.core3UsageLabel);
-            this.groupBox6.Controls.Add(this.button5);
+            this.groupBox6.Controls.Add(this.usage3Button);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Location = new System.Drawing.Point(616, 289);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
@@ -375,19 +377,20 @@
             this.core3UsageLabel.TabIndex = 2;
             this.core3UsageLabel.Text = "NORMAL";
             // 
-            // button5
+            // usage3Button
             // 
-            this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(8, 23);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(151, 89);
-            this.button5.TabIndex = 0;
-            this.button5.TabStop = false;
-            this.button5.Text = "REDUCE USAGE";
-            this.button5.UseVisualStyleBackColor = false;
+            this.usage3Button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.usage3Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usage3Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usage3Button.Location = new System.Drawing.Point(8, 23);
+            this.usage3Button.Margin = new System.Windows.Forms.Padding(4);
+            this.usage3Button.Name = "usage3Button";
+            this.usage3Button.Size = new System.Drawing.Size(151, 89);
+            this.usage3Button.TabIndex = 0;
+            this.usage3Button.TabStop = false;
+            this.usage3Button.Text = "REDUCE USAGE";
+            this.usage3Button.UseVisualStyleBackColor = false;
+            this.usage3Button.Click += new System.EventHandler(this.usage3Button_Click);
             // 
             // label12
             // 
@@ -418,7 +421,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.fanSpeedLabel);
-            this.groupBox7.Controls.Add(this.button6);
+            this.groupBox7.Controls.Add(this.fansSpeedButton);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.Location = new System.Drawing.Point(616, 563);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
@@ -437,23 +440,23 @@
             this.fanSpeedLabel.Location = new System.Drawing.Point(219, 87);
             this.fanSpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fanSpeedLabel.Name = "fanSpeedLabel";
-            this.fanSpeedLabel.Size = new System.Drawing.Size(97, 25);
+            this.fanSpeedLabel.Size = new System.Drawing.Size(0, 25);
             this.fanSpeedLabel.TabIndex = 2;
-            this.fanSpeedLabel.Text = "NORMAL";
             // 
-            // button6
+            // fansSpeedButton
             // 
-            this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(8, 23);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(151, 89);
-            this.button6.TabIndex = 0;
-            this.button6.TabStop = false;
-            this.button6.Text = "REDUCE SPEED";
-            this.button6.UseVisualStyleBackColor = false;
+            this.fansSpeedButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.fansSpeedButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fansSpeedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fansSpeedButton.Location = new System.Drawing.Point(8, 23);
+            this.fansSpeedButton.Margin = new System.Windows.Forms.Padding(4);
+            this.fansSpeedButton.Name = "fansSpeedButton";
+            this.fansSpeedButton.Size = new System.Drawing.Size(151, 89);
+            this.fansSpeedButton.TabIndex = 0;
+            this.fansSpeedButton.TabStop = false;
+            this.fansSpeedButton.Text = "REDUCE SPEED";
+            this.fansSpeedButton.UseVisualStyleBackColor = false;
+            this.fansSpeedButton.Click += new System.EventHandler(this.fansSpeedButton_Click);
             // 
             // label14
             // 
@@ -469,19 +472,19 @@
             // coreTempTimer
             // 
             this.coreTempTimer.Enabled = true;
-            this.coreTempTimer.Interval = 750;
+            this.coreTempTimer.Interval = 1500;
             this.coreTempTimer.Tick += new System.EventHandler(this.coreTempTimer_Tick);
             // 
             // coreUsageTimer
             // 
             this.coreUsageTimer.Enabled = true;
-            this.coreUsageTimer.Interval = 1000;
+            this.coreUsageTimer.Interval = 1200;
             this.coreUsageTimer.Tick += new System.EventHandler(this.coreUsageTimer_Tick);
             // 
             // fansSpeedTimer
             // 
             this.fansSpeedTimer.Enabled = true;
-            this.fansSpeedTimer.Interval = 1200;
+            this.fansSpeedTimer.Interval = 2500;
             this.fansSpeedTimer.Tick += new System.EventHandler(this.fansSpeedTimer_Tick);
             // 
             // groupBox8
@@ -539,7 +542,7 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.core4UsageLabel);
-            this.groupBox9.Controls.Add(this.button8);
+            this.groupBox9.Controls.Add(this.usage4Button);
             this.groupBox9.Controls.Add(this.label18);
             this.groupBox9.Location = new System.Drawing.Point(616, 420);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
@@ -562,19 +565,20 @@
             this.core4UsageLabel.TabIndex = 2;
             this.core4UsageLabel.Text = "NORMAL";
             // 
-            // button8
+            // usage4Button
             // 
-            this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(8, 23);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(151, 89);
-            this.button8.TabIndex = 0;
-            this.button8.TabStop = false;
-            this.button8.Text = "REDUCE USAGE";
-            this.button8.UseVisualStyleBackColor = false;
+            this.usage4Button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.usage4Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usage4Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usage4Button.Location = new System.Drawing.Point(8, 23);
+            this.usage4Button.Margin = new System.Windows.Forms.Padding(4);
+            this.usage4Button.Name = "usage4Button";
+            this.usage4Button.Size = new System.Drawing.Size(151, 89);
+            this.usage4Button.TabIndex = 0;
+            this.usage4Button.TabStop = false;
+            this.usage4Button.Text = "REDUCE USAGE";
+            this.usage4Button.UseVisualStyleBackColor = false;
+            this.usage4Button.Click += new System.EventHandler(this.usage4Button_Click);
             // 
             // label18
             // 
@@ -619,7 +623,7 @@
             // 
             // riseTemperatureTimer
             // 
-            this.riseTemperatureTimer.Interval = 1200;
+            this.riseTemperatureTimer.Interval = 1500;
             this.riseTemperatureTimer.Tick += new System.EventHandler(this.riseTemperatureTimer_Tick);
             // 
             // ControlStationForm
@@ -674,7 +678,7 @@
         private System.Windows.Forms.Label core1TempLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label core1UsageLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button usage1Button;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label core2TempLabel;
@@ -682,7 +686,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label core2UsageLabel;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button usage2Button;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label core3TempLabel;
@@ -690,12 +694,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label core3UsageLabel;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button usage3Button;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button randomAccident;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label fanSpeedLabel;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button fansSpeedButton;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Timer coreTempTimer;
         private System.Windows.Forms.Timer coreUsageTimer;
@@ -706,7 +710,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label core4UsageLabel;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button usage4Button;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;

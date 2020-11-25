@@ -13,9 +13,9 @@ namespace ControlStationSimulator
     public partial class ControlStationForm : Form
     {
         private const int ALERT_FREQ = 17;
-        private int timeCounter = 0;
+        private static int timeCounter = 0;
         private int timeTempCounter = 0;
-        private int timeTempRiseCounter = 0;
+        private int timeUsageCounter = 0;
 
         private readonly Random randomNumber = new Random();
 
@@ -23,6 +23,12 @@ namespace ControlStationSimulator
         private List<Label> labelsCoreUsage = new List<Label>();
 
         private int coreFlagTemp = -1;
+        private int [] fansFlag = {-1, -1, -1, -1};
+
+        private int fansOperation = -1;
+
+        private int[] usageFlags = { -1, -1, -1, -1 };
+        int getRandomCore = -1;
 
         public ControlStationForm()
         {
@@ -52,8 +58,12 @@ namespace ControlStationSimulator
                 Program.alertOpened = true;
                 AlertnessVerificationForm vaForm = new AlertnessVerificationForm();
                 vaForm.Show();
-                timeCounter = 0;
             }   
+        }
+
+        public static void setTimeCounter(int timeCounter)
+        {
+            ControlStationForm.timeCounter = timeCounter;
         }
 
         public int RandomNumber(int min, int max)
@@ -74,6 +84,7 @@ namespace ControlStationSimulator
                 labelsCoreTemp[coreFlagTemp - 1].Text = "NORMAL: ";
                 labelsCoreTemp[coreFlagTemp - 1].Text += RandomNumber(50, 65);
                 labelsCoreTemp[coreFlagTemp - 1].Text += " °C ";
+                System.Threading.Thread.Sleep(1000);
             }
             else
             {
@@ -87,7 +98,7 @@ namespace ControlStationSimulator
                 }
             }
 
-            if (timeTempCounter % 10 == 0)
+            if (timeTempCounter % 12 == 0)
             {
                 riseTemperatureTimer.Enabled = true;
                 coreTempTimer.Enabled = false;
@@ -110,57 +121,151 @@ namespace ControlStationSimulator
                     currentTemp = RandomNumber(70, 100);
                     labelsCoreTemp[i].Text += currentTemp;
                     labelsCoreTemp[i].Text += " °C ";
+
+                    //fansFlag = 1;
+                    changeMainFansSpeed("faster");
                 }
             }
             
         }
 
-        private void coreUsageTimer_Tick(object sender, EventArgs e)
-        {
-            foreach (Label coreUsageLabel in labelsCoreUsage)
-            {
-                coreUsageLabel.Text = "NORMAL: ";
-                coreUsageLabel.Text += RandomNumber(0, 70);
-                coreUsageLabel.Text += " % ";
-            }
-        }
-
         private void fansSpeedTimer_Tick(object sender, EventArgs e)
         {
-            fanSpeedLabel.Text = "NORMAL: ";
-            fanSpeedLabel.Text += RandomNumber(3000, 4000);
-            fanSpeedLabel.Text += " RPM ";
+            if(fansOperation == 0 || fansOperation == -1)
+            {
+                fanSpeedLabel.ForeColor = Color.Green;
+                fanSpeedLabel.Text = "NORMAL: ";
+                fanSpeedLabel.Text += RandomNumber(3000, 4000);
+                fanSpeedLabel.Text += " RPM ";
+            }
+            else if (fansOperation == 1)
+            {
+                fanSpeedLabel.ForeColor = Color.Red;
+                fanSpeedLabel.Text = "HIGH: ";
+                fanSpeedLabel.Text += RandomNumber(6000, 8000);
+                fanSpeedLabel.Text += " RPM ";
+            }
+
         }
 
         private void runFansButton_Click(object sender, EventArgs e)
         {
-            //changeMainFansSpeed("slower");
+            changeMainFansSpeed("slower");
             coreFlagTemp = 1;
             coreTempTimer.Enabled = true;
         }
 
         private void changeMainFansSpeed(String operation)
         {
-            throw new NotImplementedException();
+            switch (operation)
+            {
+                case "slower":
+                    fansOperation = 0;
+                    break;
+                case "faster":
+                    fansOperation = 1;
+                    break;
+            }
+         
         }
 
         private void runExtraFans2_Click(object sender, EventArgs e)
         {
-            //changeMainFansSpeed("slower");
+            changeMainFansSpeed("slower");
             coreFlagTemp = 2;
             coreTempTimer.Enabled = true;
+            coreTempTimer.Start();
         }
 
         private void runExtraFans3_Click(object sender, EventArgs e)
         {
+            changeMainFansSpeed("slower");
             coreFlagTemp = 3;
             coreTempTimer.Enabled = true;
+            coreTempTimer.Start();
         }
 
         private void runExtraFans4_Click(object sender, EventArgs e)
         {
+            changeMainFansSpeed("slower");
             coreFlagTemp = 4;
             coreTempTimer.Enabled = true;
+            coreTempTimer.Start();
+        }
+
+        private void fansSpeedButton_Click(object sender, EventArgs e)
+        {
+            changeMainFansSpeed("slower");
+        }
+
+        private void coreUsageTimer_Tick(object sender, EventArgs e)
+        {
+            timeUsageCounter++;
+
+            for (int j = 0; j < usageFlags.Length; j++)
+            {
+                if (usageFlags[j] == 1)
+                {
+                    labelsCoreUsage[j].ForeColor = Color.Green;
+                    labelsCoreUsage[j].Text = "NORMAL: ";
+                    labelsCoreUsage[j].Text += RandomNumber(0, 70);
+                    labelsCoreUsage[j].Text += " % ";
+                }
+            }
+
+            if (timeUsageCounter % 12 == 0)
+            {
+                for (int i = 0; i < labelsCoreUsage.Count; i++)
+                {
+                    getRandomCore = RandomNumber(0, 4);
+                    for (int j = 0; j < usageFlags.Length; j++)
+                    {
+                        if(usageFlags[j] == 1 && j == getRandomCore)
+                        {
+                            getRandomCore = RandomNumber(0, 4);
+                        }
+                    }
+                    labelsCoreUsage[getRandomCore].ForeColor = Color.Red;
+                    labelsCoreUsage[getRandomCore].Text = "HIGH: ";
+                    labelsCoreUsage[getRandomCore].Text += RandomNumber(75, 100);
+                    labelsCoreUsage[getRandomCore].Text += " % ";
+                    usageFlags[i] = -1;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < labelsCoreUsage.Count; i++)
+                {
+                    if ((getRandomCore == -1 && i != getRandomCore))
+                    {
+                        labelsCoreUsage[i].ForeColor = Color.Green;
+                        labelsCoreUsage[i].Text = "NORMAL: ";
+                        labelsCoreUsage[i].Text += RandomNumber(0, 70);
+                        labelsCoreUsage[i].Text += " % ";
+                    }
+                }
+            }
+        }
+
+
+        private void usage1Button_Click(object sender, EventArgs e)
+        {
+            usageFlags[0] = 1;
+        }
+
+        private void usage2Button_Click(object sender, EventArgs e)
+        {
+            usageFlags[1] = 1;
+        }
+
+        private void usage3Button_Click(object sender, EventArgs e)
+        {
+            usageFlags[2] = 1;
+        }
+
+        private void usage4Button_Click(object sender, EventArgs e)
+        {
+            usageFlags[3] = 1;
         }
     }
 }

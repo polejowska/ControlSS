@@ -39,6 +39,7 @@ namespace ControlStationSimulator
         private void alertButton_Click(object sender, EventArgs e)
         {
             Program.alertOpened = false;
+            ControlStationForm.setTimeCounter(0);
             stopAudio();
             this.Close();
         }
@@ -64,6 +65,7 @@ namespace ControlStationSimulator
         private void AlertnessVerificationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.alertOpened = false;
+            ControlStationForm.setTimeCounter(0);
             stopAudio();
         }
     }
